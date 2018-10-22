@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { fetchPosts } from '../actions';
 
 export class PostIndex extends Component {
@@ -7,6 +9,22 @@ export class PostIndex extends Component {
     componentDidMount() {
         this.props.fetchPosts();
     }    
+
+    render() {
+        return (
+            <div>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to="/posts/new">
+                        Add a Post
+                    </Link>
+                </div>
+                <h3>Posts</h3>
+                <ul className="list-group">
+                    {this.renderPosts()}
+                </ul>
+            </div>
+        )
+    }
 
     renderPosts() {
         const array = Object.values(this.props.posts);
@@ -18,16 +36,6 @@ export class PostIndex extends Component {
                 </li>
             );
         })
-    }
-    render() {
-        return (
-            <div>
-                <h3>Posts</h3>
-                <ul className="list-group">
-                    {this.renderPosts()}
-                </ul>
-            </div>
-        )
     }
 }
 
