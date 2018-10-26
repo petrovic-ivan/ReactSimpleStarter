@@ -23,7 +23,6 @@ class PostNew extends Component {
 
     onSubmit(values) {
         this.props.createPost(values, () => {
-            debugger;
             this.props.history.push('/');
         });
     }
@@ -39,7 +38,7 @@ class PostNew extends Component {
                 />
                 <Field 
                     label="Tags"
-                    name="tags"
+                    name="categories"
                     component={this.renderField}
                 />
                 <Field 
