@@ -38,3 +38,21 @@ td, th {
 svg {
     height: 150px;
 }
+
+.fade-enter {
+    transform: rotateX(90deg) rotateZ(90deg);
+}
+
+.fade-enter-active {
+    transform: rotateX(0deg) rotateZ(0deg);
+    transition: .5s ease-in all
+}
+
+.fade-leave {
+    right: 0px;
+}
+
+.fade-leave-active {
+    right: -100px;
+    transition: .5s ease-out all
+}
